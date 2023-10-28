@@ -6,12 +6,20 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 
 import Modelo.Components.Servicio;
+import Modelo.Servicios.Domicilio;
+import Modelo.Servicios.LavadoCepilloLlantas;
+import Modelo.Servicios.LavadoMano;
+import Modelo.Servicios.LavadoMotorVestidura;
+import Modelo.Servicios.LimpiezaCarroceria;
+import Modelo.Servicios.PorceCristalCarroceria;
+import Modelo.Servicios.SecadoraCarro;
 import Vista.Servicios;
 
 public class CtrlServicios implements ActionListener {
 
     Servicios view;
     Servicio servicio;
+    int totalVenta = 0;
 
     public CtrlServicios(Servicios view, Servicio servicio) {
         this.view = view;
@@ -29,8 +37,16 @@ public class CtrlServicios implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        if (e.getSource() == view.btnCotizar) {
+        if (e.getSource() == view.btnSalir) {
+            System.exit(0);
+        } else if (e.getSource() == view.btnCotizar) {
             cambiarEstadoBotones(true);
+        } else if (e.getSource() == view.btnCancelar) {
+            cambiarEstadoBotones(false);
+        } else if (e.getSource() == view.btnRealizarVenta) {
+
+        } else {
+            view.txtValorVenta.setText(calcularTotalVenta());
         }
     }
 
@@ -50,6 +66,9 @@ public class CtrlServicios implements ActionListener {
         ButtonGroup domicilioGroup = new ButtonGroup();
         domicilioGroup.add(view.rbtnNo);
         domicilioGroup.add(view.rbtnSi);
+
+        view.rbtnNo.addActionListener(this);
+        view.rbtnSi.addActionListener(this);
     }
 
     public void cambiarEstadoBotones(boolean estado) {
@@ -69,5 +88,41 @@ public class CtrlServicios implements ActionListener {
 
         view.rbtnNo.setEnabled(estado);
         view.rbtnSi.setEnabled(estado);
+
+        servicio = new Servicio();
+    }
+
+    private String calcularTotalVenta() {
+        int total = 0;
+
+        if (view.cboxAplicacion.isSelected()) {
+            total += new LimpiezaCarroceria(new Servicio()).getPrecio();
+        }
+
+        if (view.cboxCarroceria.isSelected()) {
+            total += new PorceCristalCarroceria(new Servicio()).getPrecio();
+        }
+
+        if (view.cboxLavadoLlantas.isSelected()) {
+            total += new LavadoCepilloLlantas(new Servicio()).getPrecio();
+        }
+
+        if (view.cboxLavadoMano.isSelected()) {
+            total += new LavadoMano(new Servicio()).getPrecio();
+        }
+
+        if (view.cboxLavadoMotor.isSelected()) {
+            total += new LavadoMotorVestidura(new Servicio()).getPrecio();
+        }
+
+        if (view.cboxSecadora.isSelected()) {
+            total += new SecadoraCarro(new Servicio()).getPrecio();
+        }
+
+        if (view.rbtnSi.isSelected()) {
+            total += new Domicilio(new Servicio()).getPrecio();
+        }
+
+        return total + "";
     }
 }
