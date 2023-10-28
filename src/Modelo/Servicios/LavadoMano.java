@@ -19,6 +19,6 @@ public class LavadoMano extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 50000;
+        return this.servicios.getPrecio() + 50000;
     }
 }
