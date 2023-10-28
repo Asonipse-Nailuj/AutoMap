@@ -33,15 +33,18 @@ public class Factura extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtFactura = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblFactura = new javax.swing.JLabel();
+        lblNumeroFactura = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblNombreFactura = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtaServiciosNombre = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtaServiciosValor = new javax.swing.JTextArea();
+        txtNombreFactura = new javax.swing.JTextField();
+        lblTotal = new javax.swing.JLabel();
+        txtValorFactura = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,48 +61,61 @@ public class Factura extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guiones_horizontales.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(227, 227, 227));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtFactura.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        txtFactura.setText("FACTURA #");
-        jPanel2.add(txtFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 60));
+        lblFactura.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        lblFactura.setText("FACTURA #");
+        jPanel2.add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 60));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        jLabel1.setText("1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, 60));
+        lblNumeroFactura.setBackground(new java.awt.Color(255, 255, 255));
+        lblNumeroFactura.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        lblNumeroFactura.setText("     ");
+        jPanel2.add(lblNumeroFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 740, 60));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(227, 227, 227));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/persona.png"))); // NOI18N
-        jPanel3.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 56, 56));
+        lblNombreFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/persona.png"))); // NOI18N
+        jPanel3.add(lblNombreFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 56, 56));
 
-        jLabel8.setText("jLabel8");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 240, 40));
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtaServiciosNombre.setEditable(false);
+        txtaServiciosNombre.setColumns(20);
+        txtaServiciosNombre.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
+        txtaServiciosNombre.setLineWrap(true);
+        txtaServiciosNombre.setRows(5);
+        jScrollPane1.setViewportView(txtaServiciosNombre);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 640, 200));
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("450000");
-        jTextArea2.setRequestFocusEnabled(false);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtaServiciosValor.setEditable(false);
+        txtaServiciosValor.setColumns(20);
+        txtaServiciosValor.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
+        txtaServiciosValor.setLineWrap(true);
+        txtaServiciosValor.setRows(5);
+        txtaServiciosValor.setRequestFocusEnabled(false);
+        jScrollPane2.setViewportView(txtaServiciosValor);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 70, 200));
+
+        txtNombreFactura.setEditable(false);
+        txtNombreFactura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel3.add(txtNombreFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 35, 200, -1));
+
+        lblTotal.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        lblTotal.setText("TOTAL = $");
+        jPanel3.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, 60));
+
+        txtValorFactura.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        txtValorFactura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jPanel3.add(txtValorFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 200, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gracias.png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 303, 157, 136));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 740, 450));
 
@@ -160,16 +176,19 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel txtFactura;
+    private javax.swing.JLabel lblFactura;
+    private javax.swing.JLabel lblNombreFactura;
+    private javax.swing.JLabel lblNumeroFactura;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JTextField txtNombreFactura;
+    private javax.swing.JTextField txtValorFactura;
+    private javax.swing.JTextArea txtaServiciosNombre;
+    private javax.swing.JTextArea txtaServiciosValor;
     // End of variables declaration//GEN-END:variables
 }
