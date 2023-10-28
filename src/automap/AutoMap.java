@@ -6,9 +6,9 @@
 
 package automap;
 
-import Controlador.Controlador;
+import Controlador.CtrlServicios;
 import Modelo.Components.Servicio;
-import Vista.Factura;
+import Vista.Servicios;
 
 /**
  *
@@ -21,9 +21,9 @@ public class AutoMap {
      */
     public static void main(String[] args) {
 
-        Factura view = new Factura();
+        Servicios view = new Servicios();
         Servicio servicio = new Servicio();
-        Controlador controlador = new Controlador(view, servicio);
+        CtrlServicios controlador = new CtrlServicios(view, servicio);
         controlador.initServicio();
     }
 
