@@ -18,6 +18,12 @@ public class Controlador implements ActionListener {
         
     }
 
+    public void initServicio() {
+        view.setTitle("AUTOMAP - SERVICIO DE LIMPIEZA PARA AUTOS");
+        view.setLocationRelativeTo(null);
+        view.setVisible(true);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
