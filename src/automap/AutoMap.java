@@ -25,7 +25,7 @@ public class AutoMap {
         Servicios view = new Servicios();
         IServicios servicio = new Servicio();
         CtrlServicios controlador = new CtrlServicios(view, servicio);
-        controlador.initServicio();
+        controlador.init();
     }
 
 }

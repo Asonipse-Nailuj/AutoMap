@@ -2,26 +2,21 @@ package Controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 import Modelo.Components.IServicios;
 import Modelo.Components.Servicio;
-import Modelo.Servicios.Domicilio;
-import Modelo.Servicios.LavadoCepilloLlantas;
-import Modelo.Servicios.LavadoMano;
-import Modelo.Servicios.LavadoMotorVestidura;
-import Modelo.Servicios.LimpiezaCarroceria;
-import Modelo.Servicios.PorceCristalCarroceria;
-import Modelo.Servicios.SecadoraCarro;
-import Vista.Servicios;
+import Modelo.Servicios.*;
+import Vista.*;
 
 public class CtrlServicios implements ActionListener {
 
     Servicios view;
     IServicios servicio;
-    int totalVenta = 0;
+    int num_factura = 1;
 
     public CtrlServicios(Servicios view, IServicios servicio) {
         this.view = view;
@@ -30,7 +25,7 @@ public class CtrlServicios implements ActionListener {
         asignacionBotones();
     }
 
-    public void initServicio() {
+    public void init() {
         view.setTitle("AUTOMAP - SERVICIO DE LIMPIEZA PARA AUTOS");
         view.setLocationRelativeTo(null);
         view.setVisible(true);
@@ -66,7 +61,7 @@ public class CtrlServicios implements ActionListener {
         }
     }
 
-    public void asignacionBotones() {
+    private void asignacionBotones() {
         view.btnCancelar.addActionListener(this);
         view.btnCotizar.addActionListener(this);
         view.btnRealizarVenta.addActionListener(this);
@@ -160,35 +155,54 @@ public class CtrlServicios implements ActionListener {
 
     private void realizarVenta() {
 
+        ArrayList<Integer> servicios_seleccionados = new ArrayList<Integer>();
+
         if (view.cboxAplicacion.isSelected()) {
             servicio = new LimpiezaCarroceria(servicio);
+            servicios_seleccionados.add(1);
         }
 
         if (view.cboxCarroceria.isSelected()) {
             servicio = new PorceCristalCarroceria(servicio);
+            servicios_seleccionados.add(2);
         }
 
         if (view.cboxLavadoLlantas.isSelected()) {
             servicio = new LavadoCepilloLlantas(servicio);
+            servicios_seleccionados.add(3);
         }
 
         if (view.cboxLavadoMano.isSelected()) {
             servicio = new LavadoMano(servicio);
+            servicios_seleccionados.add(4);
         }
 
         if (view.cboxLavadoMotor.isSelected()) {
             servicio = new LavadoMotorVestidura(servicio);
+            servicios_seleccionados.add(5);
         }
 
         if (view.cboxSecadora.isSelected()) {
             servicio = new SecadoraCarro(servicio);
+            servicios_seleccionados.add(6);
         }
 
         if (view.rbtnSi.isSelected()) {
             servicio = new Domicilio(servicio);
+            servicios_seleccionados.add(7);
         }
 
-        JOptionPane.showMessageDialog(view, "El total es: $" + servicio.getPrecio(), "prueba",
-                JOptionPane.DEFAULT_OPTION);
+        String cliente = view.txtNombre.getText();
+
+        mostrarFactura(servicios_seleccionados, cliente);
+        cambiarEstadoElementos(false);
+
+        num_factura++;
+    }
+
+    private void mostrarFactura(ArrayList<Integer> seleccionados, String cliente) {
+        Factura factura = new Factura();
+        CtrlFactura controlador = new CtrlFactura(factura, servicio, seleccionados, num_factura, cliente);
+        controlador.init();
     }
 }
