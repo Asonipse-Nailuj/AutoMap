@@ -44,7 +44,7 @@ public class Factura extends javax.swing.JFrame {
         txtNombreFactura = new javax.swing.JTextField();
         lblTotal = new javax.swing.JLabel();
         txtValorFactura = new javax.swing.JTextField();
-        lblThanks = new javax.swing.JLabel();
+        btnThanks = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,9 +116,14 @@ public class Factura extends javax.swing.JFrame {
         txtValorFactura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel3.add(txtValorFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 200, 60));
 
-        lblThanks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gracias.png"))); // NOI18N
-        lblThanks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lblThanks, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 303, 157, 136));
+        btnThanks.setBackground(new java.awt.Color(255, 255, 255));
+        btnThanks.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnThanks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gracias.png"))); // NOI18N
+        btnThanks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThanks.setMaximumSize(new java.awt.Dimension(85, 25));
+        btnThanks.setMinimumSize(new java.awt.Dimension(85, 25));
+        btnThanks.setPreferredSize(new java.awt.Dimension(85, 25));
+        jPanel3.add(btnThanks, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 305, 157, 136));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 740, 450));
 
@@ -140,6 +145,7 @@ public class Factura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnThanks;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -152,7 +158,6 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblNombreFactura;
     public javax.swing.JLabel lblNumeroFactura;
-    public javax.swing.JLabel lblThanks;
     private javax.swing.JLabel lblTotal;
     public javax.swing.JTextField txtNombreFactura;
     public javax.swing.JTextField txtValorFactura;
