@@ -1,6 +1,7 @@
-package Modelo;
+package Modelo.Components;
 
 public abstract class ServicioDecorator implements IServicios {
+    
     private IServicios servicios;
 
     public ServicioDecorator(IServicios s) {

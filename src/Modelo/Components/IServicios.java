@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Components;
 
 public interface IServicios {
 
