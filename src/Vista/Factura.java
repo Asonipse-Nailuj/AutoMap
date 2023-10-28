@@ -152,7 +152,7 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblNombreFactura;
     public javax.swing.JLabel lblNumeroFactura;
-    private javax.swing.JLabel lblThanks;
+    public javax.swing.JLabel lblThanks;
     private javax.swing.JLabel lblTotal;
     public javax.swing.JTextField txtNombreFactura;
     public javax.swing.JTextField txtValorFactura;
