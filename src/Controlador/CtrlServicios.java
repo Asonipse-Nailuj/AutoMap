@@ -29,7 +29,9 @@ public class CtrlServicios implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if (e.getSource() == view.btnCotizar) {
+            cambiarEstadoBotones(true);
+        }
     }
 
     public void asignacionBotones() {
@@ -49,5 +51,23 @@ public class CtrlServicios implements ActionListener {
         domicilioGroup.add(view.rbtnNo);
         domicilioGroup.add(view.rbtnSi);
     }
-    
+
+    public void cambiarEstadoBotones(boolean estado) {
+        view.btnCotizar.setEnabled(!estado); // Es el unico botón que tiene el estado contrario a los demás
+
+        view.btnCancelar.setEnabled(estado);
+        view.btnRealizarVenta.setEnabled(estado);
+
+        view.txtNombre.setEnabled(estado);
+
+        view.cboxAplicacion.setEnabled(estado);
+        view.cboxCarroceria.setEnabled(estado);
+        view.cboxLavadoLlantas.setEnabled(estado);
+        view.cboxLavadoMano.setEnabled(estado);
+        view.cboxLavadoMotor.setEnabled(estado);
+        view.cboxSecadora.setEnabled(estado);
+
+        view.rbtnNo.setEnabled(estado);
+        view.rbtnSi.setEnabled(estado);
+    }
 }
