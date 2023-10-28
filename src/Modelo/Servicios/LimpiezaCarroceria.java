@@ -20,7 +20,7 @@ public class LimpiezaCarroceria extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 230000;
+        return this.servicios.getPrecio() + 230000;
     }
 
 }

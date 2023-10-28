@@ -19,6 +19,6 @@ public class SecadoraCarro extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 8900;
+        return this.servicios.getPrecio() + 8900;
     }
 }

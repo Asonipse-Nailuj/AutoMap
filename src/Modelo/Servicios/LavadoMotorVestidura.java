@@ -20,6 +20,6 @@ public class LavadoMotorVestidura extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 356000;
+        return this.servicios.getPrecio() + 356000;
     }
 }

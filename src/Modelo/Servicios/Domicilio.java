@@ -19,6 +19,6 @@ public class Domicilio extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 100000;
+        return this.servicios.getPrecio() + 100000;
     }
 }

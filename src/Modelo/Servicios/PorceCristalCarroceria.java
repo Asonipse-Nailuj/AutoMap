@@ -19,6 +19,6 @@ public class PorceCristalCarroceria extends ServicioDecorator {
 
     @Override
     public int getPrecio() {
-        return 450000;
+        return this.servicios.getPrecio() + 450000;
     }
 }
