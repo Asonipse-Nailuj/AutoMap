@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
+import Modelo.Components.IServicios;
 import Modelo.Components.Servicio;
 import Modelo.Servicios.Domicilio;
 import Modelo.Servicios.LavadoCepilloLlantas;
@@ -18,10 +20,10 @@ import Vista.Servicios;
 public class CtrlServicios implements ActionListener {
 
     Servicios view;
-    Servicio servicio;
+    IServicios servicio;
     int totalVenta = 0;
 
-    public CtrlServicios(Servicios view, Servicio servicio) {
+    public CtrlServicios(Servicios view, IServicios servicio) {
         this.view = view;
         this.servicio = servicio;
 
@@ -36,15 +38,29 @@ public class CtrlServicios implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         if (e.getSource() == view.btnSalir) {
             System.exit(0);
         } else if (e.getSource() == view.btnCotizar) {
-            cambiarEstadoBotones(true);
+            cambiarEstadoElementos(true);
         } else if (e.getSource() == view.btnCancelar) {
-            cambiarEstadoBotones(false);
+            cambiarEstadoElementos(false);
         } else if (e.getSource() == view.btnRealizarVenta) {
-
+            if (view.txtNombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(view, "¡No se ha ingresado el nombre del cliente!", "NOMBRE DEL CLIENTE",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (view.txtValorVenta.getText().equals(String.valueOf(0))) {
+                JOptionPane.showMessageDialog(view, "¡Debe escoger por lo menos un servicio para realizar la venta!",
+                        "ESCOGER SERVICIOS",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (view.rbtnSi.isSelected()
+                    && view.txtValorVenta.getText().equals(String.valueOf(new Domicilio(new Servicio()).getPrecio()))) {
+                JOptionPane.showMessageDialog(view,
+                        "¡Para el servicio a domicilio se debe escoger otro servicio como minimo!",
+                        "ESCOGER SERVICIOS",
+                        JOptionPane.ERROR_MESSAGE);
+            } else {
+                realizarVenta();
+            }
         } else {
             view.txtValorVenta.setText(calcularTotalVenta());
         }
@@ -71,8 +87,8 @@ public class CtrlServicios implements ActionListener {
         view.rbtnSi.addActionListener(this);
     }
 
-    public void cambiarEstadoBotones(boolean estado) {
-        view.btnCotizar.setEnabled(!estado); // Es el unico botón que tiene el estado contrario a los demás
+    private void cambiarEstadoElementos(boolean estado) {
+        view.btnCotizar.setEnabled(!estado); // Es el unico elemento que tiene el estado contrario a los demás
 
         view.btnCancelar.setEnabled(estado);
         view.btnRealizarVenta.setEnabled(estado);
@@ -90,6 +106,22 @@ public class CtrlServicios implements ActionListener {
         view.rbtnSi.setEnabled(estado);
 
         servicio = new Servicio();
+
+        limpiarCampos();
+    }
+
+    private void limpiarCampos() {
+        view.txtNombre.setText("");
+        view.txtValorVenta.setText("0");
+
+        view.cboxAplicacion.setSelected(false);
+        view.cboxCarroceria.setSelected(false);
+        view.cboxLavadoLlantas.setSelected(false);
+        view.cboxLavadoMano.setSelected(false);
+        view.cboxLavadoMotor.setSelected(false);
+        view.cboxSecadora.setSelected(false);
+
+        view.rbtnNo.setSelected(true);
     }
 
     private String calcularTotalVenta() {
@@ -124,5 +156,39 @@ public class CtrlServicios implements ActionListener {
         }
 
         return total + "";
+    }
+
+    private void realizarVenta() {
+
+        if (view.cboxAplicacion.isSelected()) {
+            servicio = new LimpiezaCarroceria(servicio);
+        }
+
+        if (view.cboxCarroceria.isSelected()) {
+            servicio = new PorceCristalCarroceria(servicio);
+        }
+
+        if (view.cboxLavadoLlantas.isSelected()) {
+            servicio = new LavadoCepilloLlantas(servicio);
+        }
+
+        if (view.cboxLavadoMano.isSelected()) {
+            servicio = new LavadoMano(servicio);
+        }
+
+        if (view.cboxLavadoMotor.isSelected()) {
+            servicio = new LavadoMotorVestidura(servicio);
+        }
+
+        if (view.cboxSecadora.isSelected()) {
+            servicio = new SecadoraCarro(servicio);
+        }
+
+        if (view.rbtnSi.isSelected()) {
+            servicio = new Domicilio(servicio);
+        }
+
+        JOptionPane.showMessageDialog(view, "El total es: $" + servicio.getPrecio(), "prueba",
+                JOptionPane.DEFAULT_OPTION);
     }
 }

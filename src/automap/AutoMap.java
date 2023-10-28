@@ -7,6 +7,7 @@
 package automap;
 
 import Controlador.CtrlServicios;
+import Modelo.Components.IServicios;
 import Modelo.Components.Servicio;
 import Vista.Servicios;
 
@@ -22,7 +23,7 @@ public class AutoMap {
     public static void main(String[] args) {
 
         Servicios view = new Servicios();
-        Servicio servicio = new Servicio();
+        IServicios servicio = new Servicio();
         CtrlServicios controlador = new CtrlServicios(view, servicio);
         controlador.initServicio();
     }
