@@ -184,11 +184,11 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblNombreFactura;
-    private javax.swing.JLabel lblNumeroFactura;
+    public javax.swing.JLabel lblNumeroFactura;
     private javax.swing.JLabel lblTotal;
-    private javax.swing.JTextField txtNombreFactura;
-    private javax.swing.JTextField txtValorFactura;
-    private javax.swing.JTextArea txtaServiciosNombre;
-    private javax.swing.JTextArea txtaServiciosValor;
+    public javax.swing.JTextField txtNombreFactura;
+    public javax.swing.JTextField txtValorFactura;
+    public javax.swing.JTextArea txtaServiciosNombre;
+    public javax.swing.JTextArea txtaServiciosValor;
     // End of variables declaration//GEN-END:variables
 }

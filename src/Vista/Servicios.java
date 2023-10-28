@@ -113,6 +113,8 @@ public class Servicios extends javax.swing.JFrame {
         btnSalir.setMinimumSize(new java.awt.Dimension(85, 25));
         btnSalir.setPreferredSize(new java.awt.Dimension(85, 25));
         jPanel5.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 90, 56));
+
+        txtNombre.setEnabled(false);
         jPanel5.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 29, 250, -1));
 
         lblNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/persona.png"))); // NOI18N
@@ -135,15 +137,18 @@ public class Servicios extends javax.swing.JFrame {
 
         cboxLavadoMano.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         cboxLavadoMano.setText("Lavado a Mano");
+        cboxLavadoMano.setEnabled(false);
         jPanel4.add(cboxLavadoMano, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         cboxLavadoLlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cboxLavadoLlantas.setText("Lavado llantas, cepillo lava-ruedas Multi-disk y cepillo lava-ruedas con ocho cepillos");
+        cboxLavadoLlantas.setEnabled(false);
         cboxLavadoLlantas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel4.add(cboxLavadoLlantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         cboxLavadoMotor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxLavadoMotor.setText("Lavado de motor, Lavado de vestiduras de tela o piel, Teflón en vestiduras");
+        cboxLavadoMotor.setEnabled(false);
         jPanel4.add(cboxLavadoMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lavado.png"))); // NOI18N
@@ -157,14 +162,17 @@ public class Servicios extends javax.swing.JFrame {
 
         cboxSecadora.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxSecadora.setText("Secadora de Carros Integrada en el Equipo");
+        cboxSecadora.setEnabled(false);
         jPanel6.add(cboxSecadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         cboxAplicacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cboxAplicacion.setText("Aplicación de Jabón, Cera Espuma, Encerado, Pulido y descontaminación de carrocería");
+        cboxAplicacion.setEnabled(false);
         jPanel6.add(cboxAplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         cboxCarroceria.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxCarroceria.setText("Porcelánica de carrocería, Cristalizado de carrocería");
+        cboxCarroceria.setEnabled(false);
         jPanel6.add(cboxCarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carroestrella.png"))); // NOI18N
@@ -183,6 +191,7 @@ public class Servicios extends javax.swing.JFrame {
 
         rbtnSi.setBackground(new java.awt.Color(255, 255, 255));
         rbtnSi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 0)));
+        rbtnSi.setEnabled(false);
         rbtnSi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel7.add(rbtnSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 20, 20));
 
@@ -190,6 +199,8 @@ public class Servicios extends javax.swing.JFrame {
         lblServicioDomicilio.setText("SERVICIO A DOMICILIO");
         jPanel7.add(lblServicioDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        rbtnNo.setSelected(true);
+        rbtnNo.setEnabled(false);
         rbtnNo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         rbtnNo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel7.add(rbtnNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 20, 20));
@@ -215,11 +226,13 @@ public class Servicios extends javax.swing.JFrame {
         btnRealizarVenta.setBackground(new java.awt.Color(102, 255, 102));
         btnRealizarVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnRealizarVenta.setText("Realizar Venta");
+        btnRealizarVenta.setEnabled(false);
         jPanel8.add(btnRealizarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 40));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setEnabled(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -294,16 +307,16 @@ public class Servicios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCotizar;
-    private javax.swing.JButton btnRealizarVenta;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JCheckBox cboxAplicacion;
-    private javax.swing.JCheckBox cboxCarroceria;
-    private javax.swing.JCheckBox cboxLavadoLlantas;
-    private javax.swing.JCheckBox cboxLavadoMano;
-    private javax.swing.JCheckBox cboxLavadoMotor;
-    private javax.swing.JCheckBox cboxSecadora;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCotizar;
+    public javax.swing.JButton btnRealizarVenta;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JCheckBox cboxAplicacion;
+    public javax.swing.JCheckBox cboxCarroceria;
+    public javax.swing.JCheckBox cboxLavadoLlantas;
+    public javax.swing.JCheckBox cboxLavadoMano;
+    public javax.swing.JCheckBox cboxLavadoMotor;
+    public javax.swing.JCheckBox cboxSecadora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -324,9 +337,9 @@ public class Servicios extends javax.swing.JFrame {
     private javax.swing.JLabel lblServicios;
     private javax.swing.JLabel lblSi;
     private javax.swing.JLabel lblValorVenta;
-    private javax.swing.JRadioButton rbtnNo;
-    private javax.swing.JRadioButton rbtnSi;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtValorVenta;
+    public javax.swing.JRadioButton rbtnNo;
+    public javax.swing.JRadioButton rbtnSi;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtValorVenta;
     // End of variables declaration//GEN-END:variables
 }
