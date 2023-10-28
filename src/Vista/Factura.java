@@ -44,10 +44,12 @@ public class Factura extends javax.swing.JFrame {
         txtNombreFactura = new javax.swing.JTextField();
         lblTotal = new javax.swing.JLabel();
         txtValorFactura = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblThanks = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,8 +116,9 @@ public class Factura extends javax.swing.JFrame {
         txtValorFactura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel3.add(txtValorFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 200, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gracias.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 303, 157, 136));
+        lblThanks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gracias.png"))); // NOI18N
+        lblThanks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(lblThanks, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 303, 157, 136));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 740, 450));
 
@@ -137,7 +140,6 @@ public class Factura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -150,6 +152,7 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblNombreFactura;
     public javax.swing.JLabel lblNumeroFactura;
+    private javax.swing.JLabel lblThanks;
     private javax.swing.JLabel lblTotal;
     public javax.swing.JTextField txtNombreFactura;
     public javax.swing.JTextField txtValorFactura;
