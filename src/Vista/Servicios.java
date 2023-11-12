@@ -110,6 +110,7 @@ public class Servicios extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setMaximumSize(new java.awt.Dimension(85, 25));
         btnSalir.setMinimumSize(new java.awt.Dimension(85, 25));
         btnSalir.setPreferredSize(new java.awt.Dimension(85, 25));
