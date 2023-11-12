@@ -1,1 +1,5 @@
 /build/
+/nbproject/*
+/bin/
+.classpath
+.project
