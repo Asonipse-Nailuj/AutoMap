@@ -108,7 +108,6 @@ public class Servicios extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setMaximumSize(new java.awt.Dimension(85, 25));
@@ -250,7 +249,6 @@ public class Servicios extends javax.swing.JFrame {
         txtValorVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtValorVenta.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtValorVenta.setText("0");
-        txtValorVenta.setOpaque(false);
         jPanel8.add(txtValorVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 170, -1));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 790, 90));
