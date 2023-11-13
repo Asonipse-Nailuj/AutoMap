@@ -7,6 +7,7 @@
 package automap;
 
 import Controlador.CtrlServicios;
+import Modelo.Components.Conexion;
 import Modelo.Components.IServicios;
 import Modelo.Components.Servicio;
 import Vista.Servicios;
@@ -25,6 +26,7 @@ public class AutoMap {
         Servicios view = new Servicios();
         IServicios servicio = new Servicio();
         CtrlServicios controlador = new CtrlServicios(view, servicio);
+        Conexion.probarConexion();
         controlador.init();
     }
 
