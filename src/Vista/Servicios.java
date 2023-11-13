@@ -110,7 +110,7 @@ public class Servicios extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.setMaximumSize(new java.awt.Dimension(85, 25));
         btnSalir.setMinimumSize(new java.awt.Dimension(85, 25));
         btnSalir.setPreferredSize(new java.awt.Dimension(85, 25));
@@ -125,6 +125,7 @@ public class Servicios extends javax.swing.JFrame {
         btnCotizar.setBackground(new java.awt.Color(153, 204, 255));
         btnCotizar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnCotizar.setText("COTIZAR");
+        btnCotizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel5.add(btnCotizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 15, 104, 50));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 790, 80));
@@ -139,17 +140,20 @@ public class Servicios extends javax.swing.JFrame {
 
         cboxLavadoMano.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         cboxLavadoMano.setText("Lavado a Mano");
+        cboxLavadoMano.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxLavadoMano.setEnabled(false);
         jPanel4.add(cboxLavadoMano, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         cboxLavadoLlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cboxLavadoLlantas.setText("Lavado llantas, cepillo lava-ruedas Multi-disk y cepillo lava-ruedas con ocho cepillos");
+        cboxLavadoLlantas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxLavadoLlantas.setEnabled(false);
         cboxLavadoLlantas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel4.add(cboxLavadoLlantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         cboxLavadoMotor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxLavadoMotor.setText("Lavado de motor, Lavado de vestiduras de tela o piel, Teflón en vestiduras");
+        cboxLavadoMotor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxLavadoMotor.setEnabled(false);
         jPanel4.add(cboxLavadoMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
@@ -164,16 +168,19 @@ public class Servicios extends javax.swing.JFrame {
 
         cboxSecadora.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxSecadora.setText("Secadora de Carros Integrada en el Equipo");
+        cboxSecadora.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxSecadora.setEnabled(false);
         jPanel6.add(cboxSecadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         cboxAplicacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cboxAplicacion.setText("Aplicación de Jabón, Cera Espuma, Encerado, Pulido y descontaminación de carrocería");
+        cboxAplicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxAplicacion.setEnabled(false);
         jPanel6.add(cboxAplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         cboxCarroceria.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cboxCarroceria.setText("Porcelánica de carrocería, Cristalizado de carrocería");
+        cboxCarroceria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cboxCarroceria.setEnabled(false);
         jPanel6.add(cboxCarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
@@ -193,6 +200,7 @@ public class Servicios extends javax.swing.JFrame {
 
         rbtnSi.setBackground(new java.awt.Color(255, 255, 255));
         rbtnSi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 0)));
+        rbtnSi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnSi.setEnabled(false);
         rbtnSi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel7.add(rbtnSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 20, 20));
@@ -202,6 +210,7 @@ public class Servicios extends javax.swing.JFrame {
         jPanel7.add(lblServicioDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         rbtnNo.setSelected(true);
+        rbtnNo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnNo.setEnabled(false);
         rbtnNo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         rbtnNo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -228,12 +237,14 @@ public class Servicios extends javax.swing.JFrame {
         btnRealizarVenta.setBackground(new java.awt.Color(102, 255, 102));
         btnRealizarVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnRealizarVenta.setText("Realizar Venta");
+        btnRealizarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRealizarVenta.setEnabled(false);
         jPanel8.add(btnRealizarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 40));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.setEnabled(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
