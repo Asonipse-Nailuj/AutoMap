@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import Modelo.Components.IServicios;
 import Modelo.Components.Servicio;
+import Modelo.Components.Conexion;
 import Modelo.Servicios.*;
 import Vista.*;
 
@@ -16,7 +17,6 @@ public class CtrlServicios implements ActionListener {
 
     Servicios view;
     IServicios servicio;
-    int num_factura = 1;
 
     public CtrlServicios(Servicios view, IServicios servicio) {
         this.view = view;
@@ -194,13 +194,13 @@ public class CtrlServicios implements ActionListener {
 
         String cliente = view.txtNombre.getText();
 
-        mostrarFactura(servicios_seleccionados, cliente);
-        cambiarEstadoElementos(false);
+        int num_factura = Conexion.insertarVenta(cliente, servicio, servicios_seleccionados);
 
-        num_factura++;
+        mostrarFactura(servicios_seleccionados, cliente, num_factura);
+        cambiarEstadoElementos(false);
     }
 
-    private void mostrarFactura(ArrayList<Integer> seleccionados, String cliente) {
+    private void mostrarFactura(ArrayList<Integer> seleccionados, String cliente, int num_factura) {
         Factura factura = new Factura();
         CtrlFactura controlador = new CtrlFactura(factura, servicio, seleccionados, num_factura, cliente);
         controlador.init();
