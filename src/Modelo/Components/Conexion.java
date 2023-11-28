@@ -26,13 +26,13 @@ public class Conexion {
         int idGenerado = 0;
 
         try (Connection conexion = getConnection()) {
-            String insertQuery = "INSERT INTO " + TABLE_VENTAS + " (CLIENTE, TOTAL_VENTA, DESCRIPCION_VENTA) VALUES (?,?,?)";
+            String insertQuery = "INSERT INTO " + TABLE_VENTAS + " (CLIENTE, DESCRIPCION_VENTA, TOTAL_VENTA) VALUES (?,?,?)";
 
             // Habilitar la recuperación de la clave primaria generada
             try (PreparedStatement statement = conexion.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-                statement.setString(1, cliente);
-                statement.setInt(2, venta.getPrecio());
-                statement.setString(3, venta.getDescripcion());
+                statement.setString(1, cliente.toUpperCase());
+                statement.setString(2, venta.getDescripcion());
+                statement.setInt(3, venta.getPrecio());
                 statement.executeUpdate();
 
                 try ( // Recuperar las claves generadas
@@ -47,14 +47,14 @@ public class Conexion {
         }
 
         insertarDetalleVenta(idGenerado, servicios);
-        
+
         return idGenerado;
     }
 
     private static void insertarDetalleVenta(int factura, ArrayList<Integer> servicios) {
         try (Connection conexion = getConnection()) {
             for (int servicio : servicios) {
-                String insertQuery = "INSERT INTO " + TABLE_DETALLE_VENTAS + " VALUES (?,?)";
+                String insertQuery = "INSERT INTO " + TABLE_DETALLE_VENTAS + "(ID_FACTURA, ID_SERVICIO) VALUES (?,?)";
                 try (PreparedStatement statement = conexion.prepareStatement(insertQuery)) {
                     statement.setInt(1, factura);
                     statement.setInt(2, servicio);

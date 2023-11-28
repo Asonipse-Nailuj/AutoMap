@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Controlador/CtrlDetalleFacturas.java</file>
             <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Vista/Servicios.java</file>
+            <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Controlador/CtrlServicios.java</file>
+            <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Modelo/Components/Conexion.java</file>
+            <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Vista/DetalleFacturas.java</file>
             <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Vista/Factura.java</file>
+            <file>file:/C:/Users/atorres/Documents/Proyectos/AutoMap/src/Controlador/CtrlFactura.java</file>
         </group>
     </open-files>
 </project-private>

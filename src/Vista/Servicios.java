@@ -59,9 +59,10 @@ public class Servicios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnRealizarVenta = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        btnVerFacturas = new javax.swing.JButton();
         lblValorVenta = new javax.swing.JLabel();
         txtValorVenta = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -239,7 +240,28 @@ public class Servicios extends javax.swing.JFrame {
         btnRealizarVenta.setText("Realizar Venta");
         btnRealizarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRealizarVenta.setEnabled(false);
-        jPanel8.add(btnRealizarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 40));
+        jPanel8.add(btnRealizarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 40));
+
+        btnVerFacturas.setBackground(new java.awt.Color(204, 204, 204));
+        btnVerFacturas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnVerFacturas.setText("Ver Facturas");
+        btnVerFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVerFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerFacturasActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnVerFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 120, 40));
+
+        lblValorVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblValorVenta.setText("Valor Venta: $");
+        jPanel8.add(lblValorVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, 20));
+
+        txtValorVenta.setEditable(false);
+        txtValorVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtValorVenta.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtValorVenta.setText("0");
+        jPanel8.add(txtValorVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 160, -1));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -251,17 +273,7 @@ public class Servicios extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel8.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 120, 40));
-
-        lblValorVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblValorVenta.setText("Valor Venta: $");
-        jPanel8.add(lblValorVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, 20));
-
-        txtValorVenta.setEditable(false);
-        txtValorVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtValorVenta.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtValorVenta.setText("0");
-        jPanel8.add(txtValorVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 170, -1));
+        jPanel8.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 120, 40));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 790, 90));
 
@@ -279,6 +291,10 @@ public class Servicios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVerFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerFacturasActionPerformed
+
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -288,6 +304,7 @@ public class Servicios extends javax.swing.JFrame {
     public javax.swing.JButton btnCotizar;
     public javax.swing.JButton btnRealizarVenta;
     public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVerFacturas;
     public javax.swing.JCheckBox cboxAplicacion;
     public javax.swing.JCheckBox cboxCarroceria;
     public javax.swing.JCheckBox cboxLavadoLlantas;

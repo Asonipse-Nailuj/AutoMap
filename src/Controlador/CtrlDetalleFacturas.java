@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Components.IServicios;
 import Vista.DetalleFacturas;
+import Vista.Servicios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,10 +17,12 @@ import java.awt.event.ActionListener;
 public class CtrlDetalleFacturas implements ActionListener {
 
     DetalleFacturas view;
+    Servicios viewServicios;
     IServicios servicio;
 
-    public CtrlDetalleFacturas(DetalleFacturas view, IServicios servicio) {
+    public CtrlDetalleFacturas(DetalleFacturas view, Servicios viewServicios, IServicios servicio) {
         this.view = view;
+        this.viewServicios = viewServicios;
         this.servicio = servicio;
     }
 

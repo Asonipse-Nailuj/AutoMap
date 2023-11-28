@@ -35,6 +35,8 @@ public class CtrlServicios implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.btnSalir) {
             System.exit(0);
+        } else if (e.getSource() == view.btnVerFacturas) {
+            abrirDetalleFacturas();
         } else if (e.getSource() == view.btnCotizar) {
             cambiarEstadoElementos(true);
         } else if (e.getSource() == view.btnCancelar) {
@@ -66,6 +68,7 @@ public class CtrlServicios implements ActionListener {
         view.btnCotizar.addActionListener(this);
         view.btnRealizarVenta.addActionListener(this);
         view.btnSalir.addActionListener(this);
+        view.btnVerFacturas.addActionListener(this);
 
         view.cboxAplicacion.addActionListener(this);
         view.cboxCarroceria.addActionListener(this);
@@ -83,7 +86,9 @@ public class CtrlServicios implements ActionListener {
     }
 
     private void cambiarEstadoElementos(boolean estado) {
-        view.btnCotizar.setEnabled(!estado); // Es el unico elemento que tiene el estado contrario a los demás
+        // Son los unicos elementos que tienen el estado contrario a los demás
+        view.btnCotizar.setEnabled(!estado);
+        view.btnVerFacturas.setEnabled(!estado);
 
         view.btnCancelar.setEnabled(estado);
         view.btnRealizarVenta.setEnabled(estado);
@@ -117,6 +122,13 @@ public class CtrlServicios implements ActionListener {
         view.cboxSecadora.setSelected(false);
 
         view.rbtnNo.setSelected(true);
+    }
+
+    private void abrirDetalleFacturas() {
+        DetalleFacturas detalleFacturas = new DetalleFacturas();
+        IServicios servicio = new Servicio();
+        CtrlDetalleFacturas controlador = new CtrlDetalleFacturas(detalleFacturas, view, servicio);
+        controlador.init();
     }
 
     private String calcularTotalVenta() {
