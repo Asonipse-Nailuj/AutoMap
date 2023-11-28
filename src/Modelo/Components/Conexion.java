@@ -16,9 +16,9 @@ public class Conexion {
 
     // Establecer la conexión a la base de datos
     public static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://pruebas1.cjkr2pyheyda.us-east-2.rds.amazonaws.com:3306/" + DATABASE;
-        String usuario = "admin";
-        String contraseña = "123456789";
+        String url = "jdbc:mysql://viaduct.proxy.rlwy.net:49481/" + DATABASE;
+        String usuario = "root";
+        String contraseña = "F3eehhE-3gGHCDdBbfCbDdDbHhfDBEA5";
         return DriverManager.getConnection(url, usuario, contraseña);
     }
 
@@ -77,12 +77,13 @@ public class Conexion {
 
                 while (resulset.next()) {
                     int id = resulset.getInt("ID");
-                    String nombre = resulset.getString("NOMBRE");
+                    String nombre = resulset.getString("DESCRIPCION");
                     int precio = resulset.getInt("PRECIO");
 
                     System.out.printf("%d. %s - $%d\n", id, nombre, precio);
                 }
             } catch (Exception e) {
+                System.out.println("ups!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
