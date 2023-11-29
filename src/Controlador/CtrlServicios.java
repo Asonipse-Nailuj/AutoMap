@@ -126,9 +126,10 @@ public class CtrlServicios implements ActionListener {
 
     private void abrirDetalleFacturas() {
         DetalleFacturas detalleFacturas = new DetalleFacturas();
-        IServicios servicio = new Servicio();
-        CtrlDetalleFacturas controlador = new CtrlDetalleFacturas(detalleFacturas, view, servicio);
+        CtrlDetalleFacturas controlador = new CtrlDetalleFacturas(detalleFacturas, view);
         controlador.init();
+
+        view.setEnabled(false);
     }
 
     private String calcularTotalVenta() {
@@ -167,7 +168,7 @@ public class CtrlServicios implements ActionListener {
 
     private void realizarVenta() {
 
-        ArrayList<Integer> servicios_seleccionados = new ArrayList<Integer>();
+        ArrayList<Integer> servicios_seleccionados = new ArrayList<>();
 
         if (view.cboxAplicacion.isSelected()) {
             servicio = new LimpiezaCarroceria(servicio);

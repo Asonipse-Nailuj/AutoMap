@@ -2,6 +2,8 @@ package Modelo.Components;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -66,6 +68,43 @@ public class Conexion {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Map<String, Object> obtenerFacturas() {
+        try (Connection conexion = getConnection()) {
+            String selectQuery = "SELECT * FROM " + TABLE_VENTAS + " WHERE MCA_INHABILITADO = 'N'";
+
+            try (Statement statement = conexion.createStatement()) {
+                ResultSet resulset = statement.executeQuery(selectQuery);
+
+                Map<String, Object> facturas = new HashMap<>();
+                int cont = 0;
+
+                while (resulset.next()) {
+                    cont++;
+                    
+                    int id_factura = resulset.getInt("ID");
+                    String cliente = resulset.getString("CLIENTE");
+                    int total_venta = resulset.getInt("TOTAL_VENTA");
+                    Date fecha_registro = resulset.getDate("FECHA_REGISTRO");
+
+                    facturas.put("FACTURA" + cont, id_factura);
+                    facturas.put("CLIENTE" + cont, cliente);
+                    facturas.put("TOTAL_VENTA" + cont, total_venta);
+                    facturas.put("FECHA_REGISTRO" + cont, fecha_registro);
+                }
+                
+                facturas.put("cont", cont);
+
+                return facturas;
+            } catch (Exception e) {
+                System.out.println("ups!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public static void probarConexion() {
