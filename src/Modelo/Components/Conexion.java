@@ -70,6 +70,51 @@ public class Conexion {
         }
     }
 
+    public static Map<String, Object> obtenerDetalleVenta(int factura) {
+        try (Connection conexion = getConnection()) {
+            String selectQuery = "SELECT v.CLIENTE, v.DESCRIPCION_VENTA, v.TOTAL_VENTA, s.PRECIO "
+                    + "FROM VENTAS v "
+                    + "JOIN DETALLE_VENTAS dv ON v.ID = dv.ID_FACTURA "
+                    + "JOIN SERVICIOS s ON dv.ID_SERVICIO = s.ID WHERE v.ID = " + factura;
+
+            try (Statement statement = conexion.createStatement()) {
+                ResultSet resulset = statement.executeQuery(selectQuery);
+
+                Map<String, Object> detalle = new HashMap<>();
+
+                String cliente = "", descripcion = "";
+                int total_venta = 0, precio_servicio;
+
+                int cont = 0;
+
+                while (resulset.next()) {
+                    cont++;
+
+                    cliente = resulset.getString("CLIENTE");
+                    descripcion = resulset.getString("DESCRIPCION_VENTA");
+                    total_venta = resulset.getInt("TOTAL_VENTA");
+                    precio_servicio = resulset.getInt("PRECIO");
+
+                    detalle.put("PRECIO" + cont, precio_servicio);
+                }
+
+                detalle.put("CLIENTE", cliente);
+                detalle.put("DESCRIPCION_VENTA", descripcion);
+                detalle.put("TOTAL_VENTA", total_venta);
+
+                detalle.put("cont", cont);
+
+                return detalle;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public static Map<String, Object> obtenerFacturas() {
         try (Connection conexion = getConnection()) {
             String selectQuery = "SELECT * FROM " + TABLE_VENTAS + " WHERE MCA_INHABILITADO = 'N'";
@@ -82,7 +127,7 @@ public class Conexion {
 
                 while (resulset.next()) {
                     cont++;
-                    
+
                     int id_factura = resulset.getInt("ID");
                     String cliente = resulset.getString("CLIENTE");
                     int total_venta = resulset.getInt("TOTAL_VENTA");
@@ -93,7 +138,7 @@ public class Conexion {
                     facturas.put("TOTAL_VENTA" + cont, total_venta);
                     facturas.put("FECHA_REGISTRO" + cont, fecha_registro);
                 }
-                
+
                 facturas.put("cont", cont);
 
                 return facturas;

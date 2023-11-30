@@ -1,27 +1,21 @@
 package Controlador;
 
+import Modelo.Components.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import Modelo.Components.IServicios;
-import Modelo.Components.Servicio;
-import Modelo.Servicios.*;
 import Vista.Factura;
+import java.util.Map;
 
 public class CtrlFactura implements ActionListener {
 
     Factura view;
-    IServicios servicio;
 
-    public CtrlFactura(Factura view, IServicios servicio, ArrayList<Integer> seleccionados, int num_factura,
-            String cliente) {
+    public CtrlFactura(Factura view, int num_factura) {
         this.view = view;
-        this.servicio = servicio;
 
         view.btnThanks.addActionListener(this);
 
-        llenarFactura(seleccionados, num_factura, cliente);
+        llenarFactura(num_factura);
     }
 
     public void init() {
@@ -35,49 +29,23 @@ public class CtrlFactura implements ActionListener {
         view.dispose();
     }
 
-    private void llenarFactura(ArrayList<Integer> seleccionados, int num_factura, String cliente) {
+    private void llenarFactura(int num_factura) {
+        Map<String, Object> detalle = Conexion.obtenerDetalleVenta(num_factura);
+
         view.lblNumeroFactura.setText(String.valueOf(num_factura));
 
-        view.txtNombreFactura.setText(cliente);
+        view.txtNombreFactura.setText(detalle.get("CLIENTE").toString());
 
-        view.txtaServiciosNombre.setText(servicio.getDescripcion());
+        view.txtaServiciosNombre.setText(detalle.get("DESCRIPCION_VENTA").toString());
 
         String valores_servicios = "";
-        for (int servicio : seleccionados) {
-            switch (servicio) {
-                case 1:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new LimpiezaCarroceria(new Servicio()).getPrecio();
-                    break;
-                case 2:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new PorceCristalCarroceria(new Servicio()).getPrecio();
-                    break;
-                case 3:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new LavadoCepilloLlantas(new Servicio()).getPrecio();
-                    break;
-                case 4:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new LavadoMano(new Servicio()).getPrecio();
-                    break;
-                case 5:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new LavadoMotorVestidura(new Servicio()).getPrecio();
-                    break;
-                case 6:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new SecadoraCarro(new Servicio()).getPrecio();
-                    break;
-                case 7:
-                    valores_servicios += view.txtaServiciosValor.getText() + "\n$ "
-                            + new Domicilio(new Servicio()).getPrecio();
-                    break;
-            }
+        int cont = Integer.parseInt(detalle.get("cont").toString());
+        for (int i = 1; i <= cont; i++) {
+            valores_servicios += "\n$ " + detalle.get("PRECIO" + i);
         }
 
         view.txtaServiciosValor.setText(valores_servicios);
 
-        view.txtValorFactura.setText(String.valueOf(servicio.getPrecio()));
+        view.txtValorFactura.setText(detalle.get("TOTAL_VENTA").toString());
     }
 }

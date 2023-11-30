@@ -209,13 +209,13 @@ public class CtrlServicios implements ActionListener {
 
         int num_factura = Conexion.insertarVenta(cliente, servicio, servicios_seleccionados);
 
-        mostrarFactura(servicios_seleccionados, cliente, num_factura);
+        mostrarFactura(num_factura);
         cambiarEstadoElementos(false);
     }
 
-    private void mostrarFactura(ArrayList<Integer> seleccionados, String cliente, int num_factura) {
+    private void mostrarFactura(int num_factura) {
         Factura factura = new Factura();
-        CtrlFactura controlador = new CtrlFactura(factura, servicio, seleccionados, num_factura, cliente);
+        CtrlFactura controlador = new CtrlFactura(factura, num_factura);
         controlador.init();
     }
 }

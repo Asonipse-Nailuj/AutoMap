@@ -7,9 +7,13 @@ package Controlador;
 import Modelo.Components.Conexion;
 import Modelo.Components.RenderTable;
 import Vista.DetalleFacturas;
+import Vista.Factura;
 import Vista.Servicios;
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Map;
@@ -91,26 +95,33 @@ public class CtrlDetalleFacturas implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Estas presionando la casilla: " + view.jTableFacturas.columnAtPoint(e.getPoint()));
+        if (view.jTableFacturas.columnAtPoint(e.getPoint()) == 4) {
+            int num_factura = Integer.parseInt((String) view.jTableFacturas.getValueAt(view.jTableFacturas.rowAtPoint(e.getPoint()), 0));
+
+            Factura factura = new Factura();
+            CtrlFactura controlador = new CtrlFactura(factura, num_factura);
+            controlador.init();
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
+
     }
+
 }
